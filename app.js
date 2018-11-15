@@ -60,7 +60,7 @@ let orderingChickenSandwich = new Promise((resolve, reject) => {
     setTimeout(() => {
         if(mayIOrder) {
             let order = {
-                sadwich: 'Chicken',
+                sandwich: 'Chicken',
                 veggies: 'Lettuce'
             }; resolve(order);
     } else {
@@ -72,7 +72,7 @@ let orderingChickenSandwich = new Promise((resolve, reject) => {
 
 let orderFood = (async() => {
     let result = await orderingChickenSandwich;
-    console.log(result);
-});//waits for orderingChickenSandwich and then logs the result
+    console.log("Here's your " + result.sandwich + " and " + result.veggies + ' sandwich!');
+});//function waits for orderingChickenSandwich and then logs the result
 
 orderFood();
