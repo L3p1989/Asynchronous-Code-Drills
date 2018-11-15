@@ -44,9 +44,35 @@ let done = (() => {
 countdown(3.5, done);//calls `countdown()` to call `done()` after 3.5 sec
 
 let isIt = (() => {
-    if(gNum % 2 === 0) {
+    setTimeout(() => {
+        if(gNum % 2 === 0) {
         return true;
     } else return false;
-});//if gNum is even it will be true else it will be false;
+    }, 2010);
+});//fancy way of saying true; gNum will always be even   
+    
 
-let mayI = isIt();//value of `isIt()`
+let mayIOrder = setTimeout (() => {
+    isIt();
+}, 2020);//waits 2.2 value of `isIt()`
+
+let orderingChickenSandwich = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if(mayIOrder) {
+            let order = {
+                sadwich: 'Chicken',
+                veggies: 'Lettuce'
+            }; resolve(order);
+    } else {
+        let err = new Error('No!');
+        reject(err);
+    };
+    }, 2030);
+});//waits 2.3 seconds and then determines if mayIOrder is true;
+
+let orderFood = (async() => {
+    let result = await orderingChickenSandwich;
+    console.log(result);
+});//waits for orderingChickenSandwich and then logs the result
+
+orderFood();
