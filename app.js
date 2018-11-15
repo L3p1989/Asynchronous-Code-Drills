@@ -43,4 +43,4 @@ let done = (() => {
 
 countdown(5, done);//calls `countdown()` to call `done()` after 5 sec
 
-let isIt = false;
+let mayI = false;
