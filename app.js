@@ -35,10 +35,12 @@ let countdown = ((num, callback) => {
     setTimeout(() => {
         callback();
     }, num);
-});//turns num into a 1000's number, calls function after num seconds
+});//calls function after num seconds have passed
 
 let done = (() => {
     console.log('a message');
 });//logs 'a message'
 
-countdown(5, done);//calls countdown to call `done()` after 5 sec
+countdown(5, done);//calls `countdown()` to call `done()` after 5 sec
+
+let isIt = false;
