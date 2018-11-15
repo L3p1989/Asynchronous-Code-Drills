@@ -36,8 +36,8 @@ let countdown = ((num, callback) => {
     setTimeout(() => {
         callback();
     }, num);
-});
+});//turns num into a 1000's number, calls function after num seconds
 
 let done = (() => {
     console.log('a message');
-});
+});//logs 'a message'
