@@ -41,6 +41,12 @@ let done = (() => {
     console.log('a message');
 });//logs 'a message'
 
-countdown(5, done);//calls `countdown()` to call `done()` after 5 sec
+countdown(3.5, done);//calls `countdown()` to call `done()` after 3.5 sec
 
-let mayI = false;
+let isIt = (() => {
+    if(gNum % 2 === 0) {
+        return true;
+    } else return false;
+});//if gNum is even it will be true else it will be false;
+
+let mayI = isIt();//value of `isIt()`
