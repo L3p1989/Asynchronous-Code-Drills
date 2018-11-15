@@ -26,4 +26,6 @@ let getWords = (() => {
     setTimeout(() => {
         console.log('a fourth word');
     }, 1000)
-});
+});//logs 'a word', 'a fourth word', 'a third word', and 'another word' to console
+
+getWords();
