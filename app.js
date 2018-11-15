@@ -14,3 +14,16 @@ let changeVal = ((sum) => {
 setTimeout(() => {
     changeVal();
 }, 2000);//calls `changeVal` after 2 sec
+
+let getWords = (() => {
+    console.log('a word');
+    setTimeout(() => {
+        console.log('another word');
+    }, 3000);
+    setTimeout(() => {
+        console.log('a third word');
+    }, 2000);
+    setTimeout(() => {
+        console.log('a fourth word');
+    }, 1000)
+});
