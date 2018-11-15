@@ -43,36 +43,62 @@ let done = (() => {
 
 countdown(3.5, done);//calls `countdown()` to call `done()` after 3.5 sec
 
-let isIt = (() => {
+const isIt = (() => {
     setTimeout(() => {
-        if(gNum % 2 === 0) {
-        return true;
-    } else return false;
+        if (gNum % 2 === 0) {
+            return true;
+        } else return false;
     }, 2010);
 });//fancy way of saying true; gNum will always be even   
-    
 
-let mayIOrder = setTimeout (() => {
+
+let mayIOrder = setTimeout(() => {
     isIt();
-}, 2020);//waits 2.2 value of `isIt()`
+}, 2020);//waits 2.2 sec value of `isIt()`
 
-let orderingChickenSandwich = new Promise((resolve, reject) => {
+const orderingChickenSandwich = new Promise((resolve, reject) => {
     setTimeout(() => {
-        if(mayIOrder) {
+        if (mayIOrder) {
             let order = {
                 sandwich: 'Chicken',
                 veggies: 'Lettuce'
             }; resolve(order);
-    } else {
-        let err = new Error('No!');
-        reject(err);
-    };
+        } else {
+            let err = new Error('No!');
+            reject(err);
+        };
     }, 2030);
 });//waits 2.3 seconds and then determines if mayIOrder is true;
 
-let orderFood = (async() => {
+let orderFood = (async () => {
     let result = await orderingChickenSandwich;
     console.log("Here's your " + result.sandwich + " and " + result.veggies + ' sandwich!');
 });//function waits for orderingChickenSandwich and then logs the result
 
 orderFood();
+
+const getResult = (async (num) => {
+    let result = new Promise(resolve => {
+        setTimeout(() => {
+            resolve(num * 2);
+        }, 3500);
+    });//solves num * 2 after 3.5 sec
+    result = await result;//converts `result` into result of promise
+    console.log(result);
+    let nextResult = new Promise(resolve => {
+        setTimeout(() => {
+            resolve(result * 4);
+        }, 3600);
+    });//solves `result` * 4 after 3.6 sec
+    nextResult = await nextResult;//converts `nextResult into result of promise
+    console.log(nextResult);
+    let lastResult = new Promise(resolve => {
+        setTimeout(() => {
+            resolve(nextResult * 6);
+        }, 3700);
+    });//solve `nextResult` * 6 after 3.7 sec
+    lastResult = await lastResult;//converts `lastResult` into result of promise
+    console.log(lastResult);
+});//function that takes a number and multiplies it 1st by 2, then the sum by 4, and then the sum by 6
+
+getResult(1);
