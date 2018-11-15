@@ -6,11 +6,11 @@ let getVal = ((value) => {
 
 let gNum = getVal();//this assigns return value from getVal to gNum.
 
-let changeVal = ((value) => {
-    value = gNum * 4;
-    console.log(value);
-});
+let changeVal = ((sum) => {
+    sum = gNum * 4;
+    console.log(sum);
+});//multiplies gNum by 4 and then logs sum
 
 setTimeout(() => {
     changeVal();
-}, 2000);
+}, 2000);//calls `changeVal` after 2 sec
