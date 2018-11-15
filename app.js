@@ -29,3 +29,15 @@ let getWords = (() => {
 });//logs 'a word', 'a fourth word', 'a third word', and 'another word' to console
 
 getWords();
+
+let countdown = ((num, callback) => {
+    num = num * 1000;
+    console.log(num)
+    setTimeout(() => {
+        callback();
+    }, num);
+});
+
+let done = (() => {
+    console.log('a message');
+});
