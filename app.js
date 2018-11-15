@@ -32,7 +32,6 @@ getWords();
 
 let countdown = ((num, callback) => {
     num = num * 1000;
-    console.log(num)
     setTimeout(() => {
         callback();
     }, num);
@@ -41,3 +40,5 @@ let countdown = ((num, callback) => {
 let done = (() => {
     console.log('a message');
 });//logs 'a message'
+
+countdown(5, done);//calls countdown to call `done()` after 5 sec
